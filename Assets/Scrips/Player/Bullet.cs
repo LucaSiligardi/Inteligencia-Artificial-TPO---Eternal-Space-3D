@@ -44,8 +44,24 @@ public class Bullet : MonoBehaviour
                 return;
             }
 
+            SteeringAgent2 agent2 = other.GetComponent<SteeringAgent2>();
+            if (agent2 != null)
+            {
+                agent2.Die();
+                ReturnToPool();
+                return;
+            }
+            Agent3 agent3 = other.GetComponent<Agent3>();
+            if (agent3 != null)
+            {
+                agent3.Die();
+                ReturnToPool();
+                return;
+            }
             ReturnToPool();
+
         }
+
     }
 
     private void ReturnToPool()
